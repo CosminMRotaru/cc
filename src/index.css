@@ -4,15 +4,13 @@ body {
   margin: 0;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
-
-/* ========== HEADER ========== */
 .header-center {
+  gap: 13px;
+  margin-bottom: 0;
+  margin-top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  padding: 18px 0 20px 0;
-  background: transparent;
 }
 .chef-logo {
   width: 44px;
@@ -29,8 +27,6 @@ body {
   margin-left: 3px;
   user-select: none;
 }
-
-/* ========== INTRO MESSAGE ========== */
 .intro-message {
   text-align: center;
   font-size: 1.08rem;
@@ -38,8 +34,6 @@ body {
   color: #5a5a5a;
   max-width: 500px;
 }
-
-/* ========== MAIN CONTAINER ========== */
 main {
   width: 100%;
   max-width: 480px;
@@ -49,8 +43,6 @@ main {
   box-shadow: 0 6px 32px #dde5f3;
   background: #fff;
 }
-
-/* ========== ADD INGREDIENT FORM ========== */
 .add-ingredient-form {
   display: flex;
   gap: 13px;
@@ -121,8 +113,6 @@ main {
 .reset-inline-btn:hover {
   color: #a82d2d;
 }
-
-/* ========== SUGGESTIONS ========== */
 .suggestions-section {
   width: 100%;
 }
@@ -149,8 +139,6 @@ main {
 .custom-suggestion-item:hover {
   background: #f4f6fb;
 }
-
-/* ========== INGREDIENTS LIST ========== */
 .ingredients-list-container {
   margin: 20px 0 26px 0;
   text-align: center;
@@ -199,8 +187,6 @@ main {
   background: #4545a8;
   transform: scale(1.045);
 }
-
-/* ========== RECIPE ========== */
 .recipe-container {
   background: #f8f9fc;
   border-radius: 18px;
@@ -228,8 +214,6 @@ main {
   background: #f8bcbc;
   color: #fff;
 }
-
-/* ========== LOADER ========== */
 .frying-pan-loader {
   display: flex;
   justify-content: center;
@@ -245,8 +229,6 @@ main {
   margin-right: auto;
   margin-top: 25px;
 }
-
-/* ========== ANIMATIONS ========== */
 @keyframes spin {
   to { transform: rotate(360deg);}
 }
@@ -264,8 +246,6 @@ main {
     box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
   }
 }
-
-/* ========== RESPONSIVE (MOBILE) ========== */
 @media (max-width: 700px) {
   main {
     width: 100%;
