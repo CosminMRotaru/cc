@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope:wght@400;700&family=Inter:wght@400;500;700&display=swap');
+
+/* ========== GENERAL ========== */
+body {
+  font-family: 'Manrope', Arial, sans-serif;
+  background: linear-gradient(120deg, #eef2fb 0%, #e8edff 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== HEADER ========== */
+.header-bar {
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(108,99,255,0.05);
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.chef-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chef-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+.app-title {
+  font-weight: 800;
+  font-size: 2.3rem;
+  color: #6C63FF;
+  letter-spacing: 0.5px;
+  margin: 0;
+  line-height: 1;
+}
+
+/* ========== MAIN CARD ========== */
+main {
+  margin: 0 auto;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #dde5f3;
+  padding: 32px 24px 28px 24px;
+}
+
+/* ========== INTRO TEXT ========== */
+.intro-message {
+  text-align: center;
+  color: #444;
+  margin-bottom: 24px;
+  font-size: 1.24rem;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+/* ========== FORM & INPUT ========== */
+.add-ingredient-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.input-centered-container {
+  position: relative;
+  width: 240px;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
+}
+.ingredient-input {
+  width: 240px;
+  max-width: 92vw;
+  text-align: center;
+  border: 1.5px solid #dde5f3;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 1.08rem;
+  background: #f9fafd;
+  transition: border-color 0.2s;
+  display: block;
+  margin: 0;
+}
+.ingredient-input:focus {
+  outline: none;
+  border-color: #6C63FF;
+}
+
+/* ========== BUTTONS ========== */
+.add-btn, .gen-btn {
+  background: linear-gradient(90deg, #6C63FF 75%, #42b883 100%);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 13px 32px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.1s, background 0.18s;
+  font-size: 1.06rem;
+  box-shadow: 0 2px 10px #dde5f3;
+  letter-spacing: 0.4px;
+  margin: 0;
+}
+.add-btn:hover, .gen-btn:hover {
+  background: linear-gradient(90deg, #42b883 10%, #6C63FF 100%);
+  box-shadow: 0 6px 22px #bfc8e6;
+  transform: translateY(-2px) scale(1.04);
+  animation: pulse 1.4s infinite;
+}
+.reset-inline-btn {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 12px;
+  background: none;
+  border: none;
+  color: #e53e3e;
+  font-size: 1.35rem;
+  cursor: pointer;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  transition: color 0.18s, transform 0.14s;
+  padding: 4px 8px;
+}
+.reset-inline-btn:hover {
+  color: #a82d2d;
+  transform: translateY(-50%) scale(1.12);
+}
+
+/* ========== INGREDIENTS LIST ========== */
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  list-style: none;
+  padding: 0;
+  justify-content: flex-start;
+  margin-bottom: 22px;
+}
+.ingredient-card {
+  display: flex;
+  align-items: center;
+  background: #f4f6fb;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px #dde5f3;
+  font-size: 1rem;
+  padding: 9px 15px 9px 17px;
+  gap: 7px;
+  position: relative;
+  color: #222;
+  font-weight: 500;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.ingredient-card:hover {
+  background: #ebeefe;
+  box-shadow: 0 6px 20px #bfc8e6;
+}
+
+/* Remove ingredient button (X) */
+.remove-x-btn {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  margin-left: 6px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6C63FF;
+  font-size: 1.28rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.16s, color 0.16s, transform 0.12s;
+  outline: none;
+  line-height: 1;
+  box-shadow: 0 1px 3px #dde5f3;
+  position: relative;
+}
+.remove-x-btn:hover {
+  background: #6C63FF;
+  color: #fff;
+  transform: scale(1.13) rotate(90deg);
+}
+
+/* "Generate recipe" container */
+.get-recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  margin-top: 22px;
+}
+
+/* ========== SUGGESTED RECIPE & ERROR ========== */
+.suggested-recipe-container {
+  background: #f4f6fb;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #dde5f3;
+  margin-top: 23px;
+  padding: 24px 13px;
+  font-size: 1.09rem;
+  color: #222;
+  max-width: 100%;
+  overflow-x: auto;
+  font-family: 'Inter', 'Manrope', Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.7;
+}
+.suggested-recipe-container:empty {
+  display: none;
+}
+.text-red-600 {
+  color: #e53e3e;
+  font-weight: 600;
+  font-size: 1.02rem;
+  text-align: center;
+}
+
+/* ========== SUGGESTIONS (Dropdown) ========== */
+.custom-suggestion-box {
+  margin-top: 6px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  width: 240px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 0;
+  z-index: 10;
+}
+.custom-suggestion-item {
+  padding: 10px 18px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #333;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.custom-suggestion-item:hover {
+  background: #f4f6fb;
+}
+
+/* ========== LOADER ========== */
+.frying-pan-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.rotating-pan {
+  width: 70px;
+  height: 70px;
+  animation: spin 1.2s linear infinite;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes spin {
+  to { transform: rotate(360deg);}
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.6);
+  }
+  70% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 10px rgba(108, 99, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
+  }
+}
+
+/* ========== RESPONSIVE (MOBILE) ========== */
+@media (max-width: 700px) {
+  main {
+    width: 100%;
+    max-width: 360px;
+    margin: 32px auto 0 auto;
+    padding: 16px 4vw 22px 4vw;
+    border-radius: 22px;
+    box-shadow: 0 4px 24px #dde5f3;
+    background: #fff;
+  }
+  .header-center {
+    gap: 13px;
+  }
+  .chef-logo {
+    width: 37px;
+    height: 37px;
+  }
+  .app-title {
+    font-size: 1.18rem;
+  }
+  .add-ingredient-form {
+    gap: 8px;
+    margin-top: 18px;
+    margin-bottom: 22px;
+  }
+  .input-centered-container {
+    width: 100%;
+    max-width: 300px;
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto;
+  }
+  .ingredient-input {
+    width: 85vw !important;
+    max-width: 230px;
+    font-size: 1rem;
+    padding: 13px 10px;
+    margin: 0;
+    text-align: center;
+  }
+  .reset-inline-btn {
+    position: static;
+    transform: none;
+    margin-left: 8px;
+    padding: 4px 8px;
+    height: 38px;
+    background: none;
+    border: none;
+    color: #e53e3e;
+    font-size: 1.35rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.18s, transform 0.14s;
+  }
+  .reset-inline-btn:hover {
+    color: #a82d2d;
+  }
+}
