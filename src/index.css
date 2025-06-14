@@ -1,105 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope:wght@400;700&family=Inter:wght@400;500;700&display=swap');
+
+/* ========== GENERAL ========== */
+body {
+  font-family: 'Manrope', Arial, sans-serif;
+  background: linear-gradient(120deg, #eef2fb 0%, #e8edff 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 /* ========== HEADER ========== */
-.header-center {
+.header-bar {
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(108,99,255,0.05);
+  min-height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 13px;
+  margin-bottom: 30px;
+}
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.chef-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .chef-logo {
-  width: 44px;
-  height: 44px;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
 }
 .app-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.7px;
-  color: #6161c7;
-  margin-left: 3px;
+  font-weight: 800;
+  font-size: 2.3rem;
+  color: #6C63FF;
+  letter-spacing: 0.5px;
+  margin: 0;
+  line-height: 1;
+}
+
+/* ========== MAIN CARD ========== */
+main {
+  margin: 0 auto;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #dde5f3;
+  padding: 32px 24px 28px 24px;
 }
 
 /* ========== INTRO MESSAGE ========== */
 .intro-message {
   text-align: center;
-  font-size: 1.08rem;
-  margin: 15px auto 0 auto;
-  color: #5a5a5a;
-  max-width: 500px;
+  color: #444;
+  margin-bottom: 24px;
+  font-size: 1.24rem;
+  font-weight: 700;
+  letter-spacing: 0.1px;
 }
 
-/* ========== MAIN CONTAINER ========== */
-main {
-  width: 100%;
-  max-width: 480px;
-  margin: 40px auto 0 auto;
-  padding: 24px 18px 28px 18px;
-  border-radius: 28px;
-  box-shadow: 0 6px 32px #dde5f3;
-  background: #fff;
-}
-
-/* ========== ADD INGREDIENT FORM ========== */
+/* ========== FORM & INPUT ========== */
 .add-ingredient-form {
   display: flex;
-  gap: 13px;
-  margin-top: 24px;
-  margin-bottom: 26px;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 .input-centered-container {
-  width: 100%;
-  max-width: 330px;
   position: relative;
+  width: 100%;
+  max-width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   margin: 0 auto;
 }
 .ingredient-input {
-  width: 260px;
-  max-width: 85vw;
-  font-size: 1.07rem;
-  padding: 15px 13px;
-  border-radius: 12px;
-  border: 1.5px solid #c1c4dd;
-  background: #f8f9fc;
-  outline: none;
-  transition: border 0.22s;
-  margin: 0;
+  width: 240px;
+  max-width: 92vw;
   text-align: center;
+  border: 1.5px solid #dde5f3;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 1.08rem;
+  background: #f9fafd;
+  transition: border-color 0.2s;
+  display: block;
+  margin: 0;
 }
 .ingredient-input:focus {
-  border: 1.5px solid #6161c7;
-  background: #f6f7fd;
+  outline: none;
+  border-color: #6C63FF;
 }
-.add-btn {
-  padding: 12px 18px;
-  border-radius: 12px;
-  border: none;
-  background: #6161c7;
+.add-btn, .gen-btn {
+  background: linear-gradient(90deg, #6C63FF 75%, #42b883 100%);
   color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  padding: 13px 32px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.18s, transform 0.11s;
-  box-shadow: 0 2px 10px #e5e9ff;
+  transition: box-shadow 0.2s, transform 0.1s, background 0.18s;
+  font-size: 1.06rem;
+  box-shadow: 0 2px 10px #dde5f3;
+  letter-spacing: 0.4px;
+  margin: 0;
 }
-.add-btn:hover {
-  background: #4747b6;
+.add-btn:hover, .gen-btn:hover {
+  background: linear-gradient(90deg, #42b883 10%, #6C63FF 100%);
+  box-shadow: 0 4px 18px #bfcefa;
   transform: scale(1.04);
 }
 .reset-inline-btn {
   position: static;
-  transform: none;
-  margin-left: 9px;
-  padding: 5px 10px;
-  height: 44px;
+  margin-left: 8px;
+  padding: 4px 8px;
+  height: 38px;
   background: none;
   border: none;
   color: #e53e3e;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -121,7 +148,7 @@ main {
   border-radius: 10px;
   width: 95%;
   left: 2.5%;
-  top: 47px;
+  top: 42px;
   padding: 6px 0;
 }
 .custom-suggestion-item {
@@ -139,21 +166,25 @@ main {
 
 /* ========== INGREDIENTS LIST ========== */
 .ingredients-list-container {
-  margin: 20px 0 26px 0;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  justify-content: center;
+  margin-top: 22px;
+  margin-bottom: 22px;
 }
 .ingredient-pill {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  background: #edf0fd;
-  color: #5656b9;
+  background: #f4f6fb;
+  color: #6C63FF;
   border-radius: 17px;
   font-size: 1rem;
   font-weight: 500;
   padding: 8px 18px 8px 14px;
-  margin: 7px 7px 0 0;
   box-shadow: 0 2px 10px #ebedfa;
   gap: 7px;
+  margin: 0;
 }
 .remove-ingredient-btn {
   background: none;
@@ -167,24 +198,6 @@ main {
 .remove-ingredient-btn:hover {
   color: #a82d2d;
   transform: scale(1.18);
-}
-.get-recipe-btn {
-  display: block;
-  margin: 20px auto 0 auto;
-  padding: 12px 26px;
-  border-radius: 14px;
-  border: none;
-  background: #6161c7;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.08rem;
-  cursor: pointer;
-  transition: background 0.18s, transform 0.11s;
-  box-shadow: 0 2px 10px #e5e9ff;
-}
-.get-recipe-btn:hover {
-  background: #4545a8;
-  transform: scale(1.045);
 }
 
 /* ========== RECIPE ========== */
@@ -263,9 +276,12 @@ main {
     box-shadow: 0 4px 24px #dde5f3;
     background: #fff;
   }
+  .header-bar {
+    min-height: 70px;
+    margin-bottom: 14px;
+  }
   .header-center {
     gap: 13px;
-    padding: 13px 0 15px 0;
   }
   .chef-logo {
     width: 37px;
@@ -281,7 +297,7 @@ main {
   }
   .input-centered-container {
     width: 100%;
-    max-width: 300px;
+    max-width: 230px;
     position: static;
     display: flex;
     align-items: center;
@@ -291,7 +307,7 @@ main {
   }
   .ingredient-input {
     width: 85vw !important;
-    max-width: 230px;
+    max-width: 210px;
     font-size: 1rem;
     padding: 13px 10px;
     margin: 0;
