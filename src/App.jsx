@@ -72,8 +72,8 @@ export default function App() {
       <Header />
       <main>
         <div className="intro-message">
-  Enter your available ingredients below and get an instant recipe suggestion!
-</div>
+          Enter your available ingredients below and get an instant recipe suggestion!
+        </div>
         <section className="suggestions-section">
           <form
             onSubmit={handleSubmit}
@@ -111,6 +111,7 @@ export default function App() {
               <SuggestionList
                 suggestions={filteredSuggestions}
                 onClick={addIngredient}
+                setInputValue={setInputValue}
               />
             )}
 
