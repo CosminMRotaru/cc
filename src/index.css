@@ -54,7 +54,7 @@ main {
   padding: 32px 24px 28px 24px;
 }
 
-/* ========== INTRO MESSAGE ========== */
+/* ========== INTRO TEXT ========== */
 .intro-message {
   text-align: center;
   color: #444;
@@ -74,7 +74,7 @@ main {
 }
 .input-centered-container {
   position: relative;
-  width: 100%;
+  width: 240px;
   max-width: 300px;
   display: flex;
   align-items: center;
@@ -99,6 +99,8 @@ main {
   outline: none;
   border-color: #6C63FF;
 }
+
+/* ========== BUTTONS ========== */
 .add-btn, .gen-btn {
   background: linear-gradient(90deg, #6C63FF 75%, #42b883 100%);
   color: #fff;
@@ -115,41 +117,135 @@ main {
 }
 .add-btn:hover, .gen-btn:hover {
   background: linear-gradient(90deg, #42b883 10%, #6C63FF 100%);
-  box-shadow: 0 4px 18px #bfcefa;
-  transform: scale(1.04);
+  box-shadow: 0 6px 22px #bfc8e6;
+  transform: translateY(-2px) scale(1.04);
+  animation: pulse 1.4s infinite;
 }
 .reset-inline-btn {
-  position: static;
-  margin-left: 8px;
-  padding: 4px 8px;
-  height: 38px;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 12px;
   background: none;
   border: none;
   color: #e53e3e;
   font-size: 1.35rem;
   cursor: pointer;
+  height: 38px;
   display: flex;
   align-items: center;
   transition: color 0.18s, transform 0.14s;
+  padding: 4px 8px;
 }
 .reset-inline-btn:hover {
   color: #a82d2d;
+  transform: translateY(-50%) scale(1.12);
 }
 
-/* ========== SUGGESTIONS ========== */
-.suggestions-section {
-  width: 100%;
+/* ========== INGREDIENTS LIST ========== */
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  list-style: none;
+  padding: 0;
+  justify-content: flex-start;
+  margin-bottom: 22px;
 }
+.ingredient-card {
+  display: flex;
+  align-items: center;
+  background: #f4f6fb;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px #dde5f3;
+  font-size: 1rem;
+  padding: 9px 15px 9px 17px;
+  gap: 7px;
+  position: relative;
+  color: #222;
+  font-weight: 500;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.ingredient-card:hover {
+  background: #ebeefe;
+  box-shadow: 0 6px 20px #bfc8e6;
+}
+
+/* Remove ingredient button (X) */
+.remove-x-btn {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  margin-left: 6px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6C63FF;
+  font-size: 1.28rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.16s, color 0.16s, transform 0.12s;
+  outline: none;
+  line-height: 1;
+  box-shadow: 0 1px 3px #dde5f3;
+  position: relative;
+}
+.remove-x-btn:hover {
+  background: #6C63FF;
+  color: #fff;
+  transform: scale(1.13) rotate(90deg);
+}
+
+/* "Generate recipe" container */
+.get-recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  margin-top: 22px;
+}
+
+/* ========== SUGGESTED RECIPE & ERROR ========== */
+.suggested-recipe-container {
+  background: #f4f6fb;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px #dde5f3;
+  margin-top: 23px;
+  padding: 24px 13px;
+  font-size: 1.09rem;
+  color: #222;
+  max-width: 100%;
+  overflow-x: auto;
+  font-family: 'Inter', 'Manrope', Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.7;
+}
+.suggested-recipe-container:empty {
+  display: none;
+}
+.text-red-600 {
+  color: #e53e3e;
+  font-weight: 600;
+  font-size: 1.02rem;
+  text-align: center;
+}
+
+/* ========== SUGGESTIONS (Dropdown) ========== */
 .custom-suggestion-box {
-  position: absolute;
-  z-index: 100;
+  margin-top: 6px;
   background: #fff;
-  box-shadow: 0 4px 18px #e2e9f9;
-  border-radius: 10px;
-  width: 95%;
-  left: 2.5%;
-  top: 42px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  width: 240px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   padding: 6px 0;
+  z-index: 10;
 }
 .custom-suggestion-item {
   padding: 10px 18px;
@@ -162,71 +258,6 @@ main {
 }
 .custom-suggestion-item:hover {
   background: #f4f6fb;
-}
-
-/* ========== INGREDIENTS LIST ========== */
-.ingredients-list-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 13px;
-  justify-content: center;
-  margin-top: 22px;
-  margin-bottom: 22px;
-}
-.ingredient-pill {
-  display: flex;
-  align-items: center;
-  background: #f4f6fb;
-  color: #6C63FF;
-  border-radius: 17px;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 8px 18px 8px 14px;
-  box-shadow: 0 2px 10px #ebedfa;
-  gap: 7px;
-  margin: 0;
-}
-.remove-ingredient-btn {
-  background: none;
-  border: none;
-  color: #e53e3e;
-  font-size: 1.15rem;
-  cursor: pointer;
-  margin-left: 4px;
-  transition: color 0.18s, transform 0.14s;
-}
-.remove-ingredient-btn:hover {
-  color: #a82d2d;
-  transform: scale(1.18);
-}
-
-/* ========== RECIPE ========== */
-.recipe-container {
-  background: #f8f9fc;
-  border-radius: 18px;
-  padding: 20px 22px;
-  margin: 26px 0 0 0;
-  min-height: 120px;
-  box-shadow: 0 2px 16px #e8ebf8;
-  font-size: 1.06rem;
-  color: #32327d;
-  line-height: 1.62;
-}
-.clear-recipe-btn {
-  margin-top: 16px;
-  padding: 9px 20px;
-  border-radius: 10px;
-  border: none;
-  background: #f3e1e1;
-  color: #a82d2d;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.18s, color 0.15s;
-}
-.clear-recipe-btn:hover {
-  background: #f8bcbc;
-  color: #fff;
 }
 
 /* ========== LOADER ========== */
@@ -276,10 +307,6 @@ main {
     box-shadow: 0 4px 24px #dde5f3;
     background: #fff;
   }
-  .header-bar {
-    min-height: 70px;
-    margin-bottom: 14px;
-  }
   .header-center {
     gap: 13px;
   }
@@ -297,7 +324,7 @@ main {
   }
   .input-centered-container {
     width: 100%;
-    max-width: 230px;
+    max-width: 300px;
     position: static;
     display: flex;
     align-items: center;
@@ -307,7 +334,7 @@ main {
   }
   .ingredient-input {
     width: 85vw !important;
-    max-width: 210px;
+    max-width: 230px;
     font-size: 1rem;
     padding: 13px 10px;
     margin: 0;
