@@ -3,7 +3,7 @@ export default function SuggestionList({ suggestions, onClick, setInputValue }) 
 
   function handleSuggestionClick(suggestion) {
     onClick(suggestion);
-    if (setInputValue) setInputValue(""); 
+    if (setInputValue) setInputValue("");
   }
 
   return (
